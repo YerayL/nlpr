@@ -1,3 +1,2 @@
-Git is very nice.
-Wow 
+Git is very nice.Wow 
 hhh.
