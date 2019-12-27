@@ -37,10 +37,11 @@ PATIENCE = 5
 HIDDEN_SIZE = 400  # every LSTM's(forward and backward) hidden size is half of HIDDEN_SIZE
 LSTM_LAYER_NUM = 1
 DROPOUT_RATE = (0.5, 0.5, (0.5, 0.5))  # after embed layer, other case, (input to rnn, between rnn layers)
-USE_POS = True  # use char level information
+USE_POS = True  # use POS  information
 # N_FILTERS = 30  # the output char embedding from CNN
 # KERNEL_STEP = 3  # n-gram size of CNN
 USE_CRF = True
+USE_CPOYNET = True
 
 def train(train_iter, dev_iter, optimizer):
     best_dev_f1 = [0.93, 0.56, 0.92]
@@ -91,12 +92,7 @@ def eval(data_iter, name, epoch=None, best_model=None):
         model.load_state_dict(torch.load(best_model))
     model.eval()
     with torch.no_grad():
-        total_loss = 0
-        correct_out = 0
-        total_full = 0
-        correct_label = 0
-        total_cha = 0
-        discriminate = 0
+        total_loss = correct_out = total_full = correct_label = total_cha = discriminate = 0
         for i, batch in enumerate(data_iter):
             chars, lens = batch.char
             labels = batch.label
@@ -118,10 +114,11 @@ def eval(data_iter, name, epoch=None, best_model=None):
                     for i in predict_id[:len_]:
                         if i in ground_truth_id[:len_]:
                             correct_label += 1
-                    if not (list(set(ground_truth_id[:len_])) == [3] and list(set(ground_truth_id[:len_])) != list(set(predict_id[:len_]))):
+                    if not (list(set(ground_truth_id[:len_])) == [3] and
+                            list(set(ground_truth_id[:len_])) != list(set(predict_id[:len_]))):
                         discriminate += 1
 
-        # Calculating the F1-Score
+        # Calculating the acc
         d_acc = discriminate / total_full if total_full != 0 else 0
         all_acc = correct_out / total_full if total_full != 0 else 0
         char_acc = correct_label / total_cha if total_cha != 0 else 0
