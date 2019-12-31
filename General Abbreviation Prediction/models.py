@@ -41,11 +41,11 @@ class CopyDecoder(nn.Module):
         self.nonlinear = nn.Tanh()
 
     def forward(self, input_idx, encoded, encoded_idx, prev_state, weighted, order):
-        # input_idx(y_(t-1)): [b]			<- idx of next input to the decoder (Variable)
-        # encoded: [b x seq x hidden*2]		<- hidden states created at encoder (Variable)
-        # encoded_idx: [b x seq]			<- idx of inputs used at encoder (numpy)
-        # prev_state(s_(t-1)): [1 x b x hidden]		<- hidden states to be used at decoder (Variable)
-        # weighted: [b x 1 x hidden*2]		<- weighted attention of previous state, init with all zeros (Variable)
+        # input_idx(y_(t-1)): [batch_size]			<- idx of next input to the decoder (Variable)
+        # encoded: [batch_size x seq x hidden*2]		<- hidden states created at encoder (Variable)
+        # encoded_idx: [batch_size x seq]			<- idx of inputs used at encoder (numpy)
+        # prev_state(s_(t-1)): [1 x batch_size x hidden]		<- hidden states to be used at decoder (Variable)
+        # weighted: [batch_size x 1 x hidden*2]		<- weighted attention of previous state, init with all zeros (Variable)
 
         # hyperparameters
         start = time.time()

@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f4982d30-2118-46ba-9afc-82dbfa371cce" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../BiLstm_CNN_CRF_CWS-master/.idea/BiLstm_CNN_CRF_CWS-master.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BiLstm_CNN_CRF_CWS-master/BiLstm_CNN_CRF_CWS-master/simple_bilstm_model/.idea/simple_bilstm_model.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ChineseNER-master/.idea/ChineseNER-master.iml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/copynet_util.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/models.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,6 +142,7 @@
       <workItem from="1577088342923" duration="9158000" />
       <workItem from="1577348055404" duration="69000" />
       <workItem from="1577434194014" duration="10260000" />
+      <workItem from="1577782481755" duration="1994000" />
     </task>
     <servers />
   </component>
