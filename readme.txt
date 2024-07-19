@@ -1,2 +1,1 @@
-Git is very nice.Wow 
-hhh.
+基于CopyNet实现词缩写
